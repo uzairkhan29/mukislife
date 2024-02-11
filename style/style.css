@@ -234,6 +234,7 @@ body {
 }
 
 #like-text {
+  text-decoration: none;
   /* CSS styles for the element with the ID "like-text" */
   /* Add your styles here */
 }
