@@ -235,8 +235,6 @@ body {
 
 .last-smile {
   display: inline-block;
-  padding: 5px 10px;
-  background-color: #eee;
   text-decoration: none; /* Remove default underline */
   color: #333; /* Set text color */
   font-weight: bold; /* Make text bold */
