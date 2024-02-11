@@ -306,7 +306,7 @@ const resolveFetch = () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   const smileButton = document.querySelector(".last-smile");
-  const likeText = document.querySelector("#like-text");
+  const likeText = document.querySelector("like-text");
 
   function toggleSmileButtonVisibility() {
     // Check if the like text is visible
