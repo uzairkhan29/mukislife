@@ -302,4 +302,15 @@ const resolveFetch = () => {
   });
 };
 
+// JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+  const textElement = document.querySelector("p:contains('Did you like it? No right.')");
+  const smileContainer = document.getElementById("smile-container");
+
+  if (textElement && window.getComputedStyle(textElement).display !== "none") {
+    smileContainer.style.display = "block";
+  }
+});
+
+
 resolveFetch().then(animationTimeline());
