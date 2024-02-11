@@ -304,13 +304,14 @@ const resolveFetch = () => {
 
 // JavaScript
 document.addEventListener("DOMContentLoaded", function () {
-  const textElement = document.querySelector("p:contains('Did you like it? No right.')");
+  const textElement = document.querySelector("p");
   const smileContainer = document.getElementById("smile-container");
 
-  if (textElement && window.getComputedStyle(textElement).display !== "none") {
+  if (textElement && textElement.textContent.trim() === "Did you like it? No right.") {
     smileContainer.style.display = "block";
   }
 });
+
 
 
 resolveFetch().then(animationTimeline());
