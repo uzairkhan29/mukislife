@@ -233,6 +233,12 @@ body {
   cursor: pointer;
 }
 
+#like-text {
+  /* CSS styles for the element with the ID "like-text" */
+  /* Add your styles here */
+}
+
+
 .last-smile {
   display: inline-block;
   text-decoration: none; /* Remove default underline */
