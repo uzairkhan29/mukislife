@@ -6,11 +6,11 @@ const animationTimeline = () => {
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -281,15 +281,16 @@ const animationTimeline = () => {
     );
   };
 
-  // Start the animation if the paragraph is in the viewport
-  const checkAndStartAnimation = () => {
+  // Function to show the button when paragraph is in the viewport
+  const checkAndShowButton = () => {
     if (paragraphInViewport()) {
-      tl.play();
-      window.removeEventListener('scroll', checkAndStartAnimation); // Remove the event listener once animation starts
+      replyBtn.style.display = 'block';
+      window.removeEventListener('scroll', checkAndShowButton);
     }
   };
 
-  window.addEventListener('scroll', checkAndStartAnimation);
+  // Add event listener to check if paragraph becomes visible
+  window.addEventListener('scroll', checkAndShowButton);
 };
 
 // Import the data to customize and insert them into page
