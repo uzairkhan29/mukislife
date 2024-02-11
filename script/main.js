@@ -1,16 +1,16 @@
 // Animation Timeline
 const animationTimeline = () => {
-  // Spit chars that need to be animated individually
+  // Spit chars that needs to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span>`;
+    .join("</span><span>")}</span`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span>`;
+    .join("</span><span>")}</span`;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -26,7 +26,7 @@ const animationTimeline = () => {
     skewX: "-15deg",
   };
 
-  const tl = new TimelineMax({ paused: true }); // Pause the timeline initially
+  const tl = new TimelineMax();
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -265,32 +265,14 @@ const animationTimeline = () => {
       "+=1"
     );
 
+  // tl.seek("currentStep");
+  // tl.timeScale(2);
+
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
   });
-
-  // Check if the paragraph is in the viewport
-  const paragraph = document.querySelector('.nine p');
-  const paragraphInViewport = () => {
-    const rect = paragraph.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    );
-  };
-
-  // Function to show the button when paragraph is in the viewport
-  const checkAndShowButton = () => {
-    if (paragraphInViewport()) {
-      replyBtn.style.display = 'block';
-      window.removeEventListener('scroll', checkAndShowButton);
-    }
-  };
-
-  // Add event listener to check if paragraph becomes visible
-  window.addEventListener('scroll', checkAndShowButton);
 };
 
 // Import the data to customize and insert them into page
@@ -320,4 +302,4 @@ const resolveFetch = () => {
   });
 };
 
-resolveFetch().then(animationTimeline);
+resolveFetch().then(animationTimeline());
