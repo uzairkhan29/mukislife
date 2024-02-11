@@ -1,6 +1,6 @@
 // Animation Timeline
 const animationTimeline = () => {
-  // Spit chars that needs to be animated individually
+  // Spit chars that need to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
@@ -26,7 +26,7 @@ const animationTimeline = () => {
     skewX: "-15deg",
   };
 
-  const tl = new TimelineMax();
+  const tl = new TimelineMax({ paused: true }); // Pause the timeline initially
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -265,14 +265,31 @@ const animationTimeline = () => {
       "+=1"
     );
 
-  // tl.seek("currentStep");
-  // tl.timeScale(2);
-
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
   });
+
+  // Check if the paragraph is in the viewport
+  const paragraph = document.querySelector('.nine p');
+  const paragraphInViewport = () => {
+    const rect = paragraph.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+  };
+
+  // Start the animation if the paragraph is in the viewport
+  const checkAndStartAnimation = () => {
+    if (paragraphInViewport()) {
+      tl.play();
+      window.removeEventListener('scroll', checkAndStartAnimation); // Remove the event listener once animation starts
+    }
+  };
+
+  window.addEventListener('scroll', checkAndStartAnimation);
 };
 
 // Import the data to customize and insert them into page
@@ -302,4 +319,4 @@ const resolveFetch = () => {
   });
 };
 
-resolveFetch().then(animationTimeline());
+resolveFetch().then(animationTimeline);
