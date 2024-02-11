@@ -302,11 +302,9 @@ const resolveFetch = () => {
   });
 };
 
-// Add this code to your main.js file
-
 document.addEventListener("DOMContentLoaded", function () {
   const smileButton = document.querySelector(".last-smile");
-  const likeText = document.querySelector("#like-text");
+  const likeText = document.querySelector(".like-text"); // Use .like-text for class selector
 
   function toggleSmileButtonVisibility() {
     // Check if the like text is visible
