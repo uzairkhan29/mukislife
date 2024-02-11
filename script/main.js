@@ -302,20 +302,30 @@ const resolveFetch = () => {
   });
 };
 
-// main.js
-
-// Animation Timeline function and other existing code...
+// Add this code to your main.js file
 
 document.addEventListener("DOMContentLoaded", function () {
-  const textElement = document.querySelector("p");
   const smileButton = document.querySelector(".last-smile");
+  const likeText = document.querySelector("#like-text");
 
-  if (textElement && textElement.textContent.trim() === "Did you like it? No right.") {
-    smileButton.style.display = "inline-block";
+  function toggleSmileButtonVisibility() {
+    // Check if the like text is visible
+    const isLikeTextVisible = likeText.offsetWidth > 0 || likeText.offsetHeight > 0;
+    
+    // Toggle the visibility of the smile button based on the visibility of the like text
+    if (isLikeTextVisible) {
+      smileButton.style.display = "inline-block";
+    } else {
+      smileButton.style.display = "none";
+    }
   }
-});
 
-// Resolve Fetch function and other existing code...
+  // Call the function initially to set the initial visibility
+  toggleSmileButtonVisibility();
+
+  // Call the function whenever the window is resized to handle responsive design
+  window.addEventListener("resize", toggleSmileButtonVisibility);
+});
 
 
 
