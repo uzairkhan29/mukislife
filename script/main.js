@@ -302,15 +302,22 @@ const resolveFetch = () => {
   });
 };
 
-// JavaScript
+// main.js
+
+// Animation Timeline function and other existing code...
+
 document.addEventListener("DOMContentLoaded", function () {
   const textElement = document.querySelector("p");
-  const smileContainer = document.getElementById("smile-container");
+  const smileButton = document.querySelector(".last-smile");
 
   if (textElement && textElement.textContent.trim() === "Did you like it? No right.") {
-    smileContainer.style.display = "block";
+    smileButton.style.display = "inline-block";
   }
 });
+
+// Resolve Fetch function and other existing code...
+
+
 
 
 
